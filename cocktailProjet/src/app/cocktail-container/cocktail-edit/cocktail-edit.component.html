@@ -11,6 +11,32 @@
     <label for="">Description :</label>
     <textarea formControlName="desc" class="form-control"></textarea>
   </div>
+  <hr />
+  <button class="btn btn-success" type="button" (click)="addIngredient()">
+    Ajouter ingrédient
+  </button>
+  <hr />
+  <div FormArrayName="ingredients">
+    <div
+      [formGroup]="ingredient"
+      class="form-group row"
+      *ngFor="let ingredient of ingredients.controls"
+    >
+      <input
+        placeholder="name"
+        formControlName="name"
+        class="form-control col-8"
+        type="text"
+      />
+      <input
+        placeholder="quantity"
+        formControlName="quantity"
+        class="form-control col-4"
+        type="number"
+      />
+    </div>
+  </div>
+  <hr />
   <button [disabled]="cocktail.invalid" class="btn btn-primary">
     Sauvegarder
   </button>
